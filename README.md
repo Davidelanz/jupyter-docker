@@ -31,7 +31,7 @@ It provides a quick, dockerized set up for Jupyter Lab with multiple Conda envir
 Download the image from [davidelanz/jupyter](https://hub.docker.com/r/davidelanz/jupyter), 
 then mount the container (the image exposes JupyterLab on the ``8888`` port):
 ```
-docker run -p CONTANER_PORT:8888 -v EXTERNAL_FOLDER:/workspace --name CONTAINER_NAME davidelanz/jupyter:TAG
+docker run -p CONTANER_PORT:8888 -v EXTERNAL_FOLDER:/workspace --name CONTAINER_NAME davidelanz/jupyter
 ```
 
 Your workspace will be available at [localhost:CONTANER_PORT](http://localhost:CONTANER_PORT).
@@ -61,4 +61,14 @@ Then you can load it to JupyterLab as follows:
 conda activate <DESIRED_ENV_NAME> && \
     conda install -y ipykernel && \
     ipython kernel install --name <DESIRED_ENV_NAME> --user
+```
+
+With Jupyter installed you get the list of currently installed kernels with:
+```
+jupyter kernelspec list
+```
+
+If you want to uninstall an unwanted kernel:
+```
+jupyter kernelspec uninstall <UNWANTED_KERNEL>
 ```
