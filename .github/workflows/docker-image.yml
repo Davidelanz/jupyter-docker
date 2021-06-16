@@ -35,5 +35,5 @@ jobs:
           DOCKER_PASS: ${{ secrets.DOCKER_PASSWORD }}
         run: |
           docker login -u $DOCKER_USER -p $DOCKER_PASS && \
-          docker build . --file cpu/Dockerfile --tag davidelanz/jupyter:latest && \
+          docker build . --tag davidelanz/jupyter:latest && \
           docker push davidelanz/jupyter:latest
