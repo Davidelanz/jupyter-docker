@@ -1,0 +1,39 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  PushReadmeJob:
+    runs-on: ubuntu-latest
+    name: Push README to Docker Hub
+    steps:
+      - name: git checkout
+        uses: actions/checkout@v2
+      - name: push README to Dockerhub
+        uses: christian-korneck/update-container-description-action@v1
+        env:
+          DOCKER_USER: davidelanz
+          DOCKER_PASS: ${{ secrets.DOCKER_PASSWORD }}
+        with:
+          destination_container_repo: davidelanz/jupyter
+          provider: dockerhub
+          short_description: "Quickly set up Jupyter Lab with multiple Conda environments"
+          readme_file: "README.md"
+
+  BuildPushLatest:
+    runs-on: ubuntu-latest
+    name: Latest
+    steps:
+      - name: git checkout
+        uses: actions/checkout@v2
+
+      - name: Build and push latest image
+        env:
+          DOCKER_USER: davidelanz
+          DOCKER_PASS: ${{ secrets.DOCKER_PASSWORD }}
+        run: |
+          docker login -u $DOCKER_USER -p $DOCKER_PASS && \
+          docker build . --file cpu/Dockerfile --tag davidelanz/jupyter:latest && \
+          docker push davidelanz/jupyter:latest
