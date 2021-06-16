@@ -60,9 +60,7 @@ conda create -y --name <DESIRED_ENV_NAME> python=<DESIRED_PYTHON_VERSION>
 ```
 Then you can load it to JupyterLab as follows:
 ```
-conda activate <DESIRED_ENV_NAME> && \
-    conda install -y ipykernel && \
-    ipython kernel install --name <DESIRED_ENV_NAME> --user
+conda activate <DESIRED_ENV_NAME> && conda install -y ipykernel && python -m ipykernel install --name <DESIRED_ENV_NAME> --user
 ```
 
 With Jupyter installed you get the list of currently installed kernels with:
