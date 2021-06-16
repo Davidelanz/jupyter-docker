@@ -14,6 +14,8 @@ It provides a quick, dockerized set up for Jupyter Lab with multiple Conda envir
 | [![](https://raw.githubusercontent.com/Davidelanz/jupyter-docker/master/.docs/lsp-integration.png)](https://jupyterlab-lsp.readthedocs.io/en/latest/index.html) | The image comes with [LSP Python language server for JupyterLab](https://jupyterlab-lsp.readthedocs.io/en/latest/index.html) (jedi 0.17.2) already installed |
 | [![](https://raw.githubusercontent.com/Davidelanz/jupyter-docker/master/.docs/opencv.png)](https://opencv.org/) | The image comes already with a Python3.7 Conda environment with OpenCV support called ``opencv-py3.7`` |
 
+![](https://raw.githubusercontent.com/Davidelanz/jupyter-docker/master/.docs/banner.png)
+
 ---
 
 - [Loading the image](#loading-the-image)
